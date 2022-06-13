@@ -1,11 +1,10 @@
 import { ErrorMessage, Formik, Form, Field } from 'formik';
 import { useState } from 'react';
 import * as yup from 'yup';
-import Axios from 'axios';
 import './App.css';
+import axios from 'axios';
 
 function App() {
-
   const handleLogin = (values) => {
     console.log(values);
   };
@@ -15,7 +14,7 @@ function App() {
   };
 
   const validationsLogin = yup.object().shape({
-    email: yup
+    name: yup
       .string()
       .required("Seu nome não pode ficar vazio"),
     password: yup
@@ -25,7 +24,7 @@ function App() {
   });
 
   const validationsRegister = yup.object().shape({
-    email: yup
+    name: yup
       .string()
       .required("Seu nome não pode ficar vazio"),
     password: yup
