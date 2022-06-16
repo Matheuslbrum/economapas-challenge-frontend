@@ -50,7 +50,7 @@ function Dashboard() {
 
   const handleCreateGroup = () => {
     if(!inputGroupName || !selectedOptions.length > 0 ) {
-      alert("não pode ter imput vazio");
+      alert("não pode ter input vazio");
       return;
     }
 
@@ -72,14 +72,19 @@ function Dashboard() {
            cities: JSON.parse(response.data[0].cities),
          }
        ])
+     }).catch((error) => {
+        alert(error);
      }); 
     });
   };
 
   useEffect(() => {
-    axios.get(`https://challengeeconomapas-backend.herokuapp.com/${currentUser.userId}`).then((response) => {
+    axios.get(`https://challengeeconomapas-backend.herokuapp.com/${currentUser.userId}`)
+    .then((response) => {
       setGroups(response.data)
-    });
+    }).catch((error) => {
+      alert(error);
+   }); 
   }, [currentUser])
 
   return (

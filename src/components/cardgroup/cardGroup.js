@@ -21,7 +21,7 @@ function CardGroup(props) {
         return value.id !== groupId;
       }))
     })
-    .catch (error => console.log(error));
+    .catch (error => alert(error));
   }
 
   return (
